@@ -1,0 +1,9 @@
+POST http://localhost:3003/api/blogs
+content-type: application/json
+
+{
+  "title": "PostGraphile V5 public beta — get involved!",
+  "author": "Graphile Team",
+  "url": "https://www.graphile.org/news/20230803-postgraphile-v5-beta/",
+  "likes": 0
+}
