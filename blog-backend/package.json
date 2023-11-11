@@ -1,0 +1,17 @@
+{
+  "name": "blog-backend",
+  "version": "1.0.0",
+  "description": "Full Stack Open Blog (part 4) backend",
+  "main": "index.js",
+  "scripts": {
+    "build:ui": "rm -rf dist && cd ../blog-frontend/ && npm run build && cp -r dist ../blog-backend",
+    "deploy": "fly deploy",
+    "deploy:full": "npm run build:ui && npm run deploy",
+    "logs:prod": "fly logs",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Derek J Williams",
+  "license": "MIT"
+}
