@@ -1,9 +1,9 @@
-POST http://localhost:3003/api/blogs
+POST http://localhost:3005/api/blogs
 content-type: application/json
 
 {
-  "title": "PostGraphile V5 public beta — get involved!",
-  "author": "Graphile Team",
-  "url": "https://www.graphile.org/news/20230803-postgraphile-v5-beta/",
+  "title": "v2.35.1-cloud.1 : Changelog",
+  "author": "Hasura Team",
+  "url": "https://hasura.io/changelog/cloud/v2.35.1-cloud.1",
   "likes": 0
 }
