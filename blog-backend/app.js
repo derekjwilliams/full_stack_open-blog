@@ -3,6 +3,7 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const blogsRouter = require('./controllers/blogs')
+const middleware = require('./utils/middleware')
 const logger = require('./utils/logger')
 const mongoose = require('mongoose')
 
@@ -20,6 +21,12 @@ mongoose
 app.use(cors())
 app.use(express.static('dist')) // for integrating front end
 app.use(express.json())
+app.use(middleware.requestLogger) // important, this needs to be before the router
+
 app.use('/api/blogs', blogsRouter) // for routing
+
+// important, these need to be at the end
+app.use(middleware.unknownEndpoint)
+app.use(middleware.requestErrorHandler)
 
 module.exports = app
