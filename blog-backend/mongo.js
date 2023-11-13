@@ -1,23 +1,15 @@
 const mongoose = require('mongoose')
+require('dotenv').config()
 
-// if (process.argv.length<3) {
-//   console.log('give password as argument')
-//   process.exit(1)
-// }
+// const PORT = process.env.PORT || 3001
 
-// const password = process.argv[2]
-
-const url =
-`mongodb://127.0.0.1:27017/bloglist`
-  // `mongodb+srv://fullstackopenmongo:${password}@freestackopencluster.dhyth5u.mongodb.net/noteApp?retryWrites=true&w=majority`
-//  `mongodb+srv://fullstackopenmongo:${password}@freestackopencluster.dhyth5u.mongodb.net/noteApp?retryWrites=true&w=majority`
-
-  ///mongodb+srv://<username>:<password>@freestackopencluster.dhyth5u.mongodb.net/?retryWrites=true&w=majority
-
-
+const MONGODB_URI = process.env.MONGODB_URI_PREFIX + process.env.MONGODB_PASSWORD + process.env.MONGODB_URI_SUFFIX
+// const MONGODB_URI = process.env.MONGODB_URI_PREFIX + process.env.MONGODB_PASSWORD + process.env.MONGODB_URI_SUFFIX
+// const url =
+// `mongodb://127.0.0.1:27017/bloglist`
   
 mongoose.set('strictQuery',false)
-mongoose.connect(url)
+mongoose.connect(MONGODB_URI)
 
 const blogSchema = new mongoose.Schema({
   title: String,
@@ -36,9 +28,9 @@ Blog.find({}).then(result => {
 })
 
 const blog = new Blog({
-  title: 'FullStackOpen Part 4',
-  author: 'Derek',
-  url: 'http://localhost/blog/part4',
+  title: 'PostGraphile V5 public beta — get involved!',
+  author: 'Graphile Team',
+  url: 'https://www.graphile.org/news/20230803-postgraphile-v5-beta/',
   likes: 0
 })
 
