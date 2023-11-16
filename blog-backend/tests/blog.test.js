@@ -1,4 +1,4 @@
-const { dummy, totalLikes, favoriteBlog} = require('../utils/list_helper')
+const { dummy, totalLikes, favoriteBlog, mostBlogs, authorMostLikes} = require('../utils/list_helper')
 
 describe('blog list tests', () => {
 
@@ -69,5 +69,17 @@ describe('blog list tests', () => {
   test('get the most liked blog', () => {
     const result = favoriteBlog(blogs)
     expect(result).toEqual(blogs[2])
+  })
+
+  test('author with most blogs', () => {
+    const result = mostBlogs(blogs)
+    expect(result.author).toBe('Robert C. Martin')
+    expect(result.blogs).toBe(3)
+  })
+
+  test('author with most likes', () => {
+    const result = authorMostLikes(blogs)
+    expect(result.author).toBe('Edsger W. Dijkstra')
+    expect(result.likes).toBe(17)
   })
 })
