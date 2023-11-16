@@ -1,9 +1,8 @@
-const listHelper = require('../utils/list_helper')
+const { dummy, totalLikes, favoriteBlog} = require('../utils/list_helper')
 
+describe('blog list tests', () => {
 
-
-describe('total likes', () => {
-  const listWithOneBlog = [  {
+  const blogs = [  {
     _id: "5a422a851b54a676234d17f7",
     title: "React patterns",
     author: "Michael Chan",
@@ -56,8 +55,19 @@ describe('total likes', () => {
   //   const result = listHelper.dummy(listWithOneBlog)
   //   expect(result).toBe(1)
   // })
-  test('when list has only one blog, equals the likes of that', () => {
-    const result = listHelper.totalLikes(listWithOneBlog)
+
+  test('dummy returns one', () => {
+    const result = dummy(blogs)
+    expect(result).toBe(1)
+  })
+
+  test('get total of likes', () => {
+    const result = totalLikes(blogs)
     expect(result).toBe(36)
+  })
+
+  test('get the most liked blog', () => {
+    const result = favoriteBlog(blogs)
+    expect(result).toEqual(blogs[2])
   })
 })
